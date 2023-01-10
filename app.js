@@ -17,6 +17,7 @@ app.set('view engine', 'hbs')
 
 //middleware
 app.use(routes)
+app.use(express.static('public'))
 
 
 //開始伺服器
