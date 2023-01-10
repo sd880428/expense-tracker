@@ -2,7 +2,7 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const routes = require('./routes/')
-
+require('./config/mongoose')
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
@@ -20,7 +20,7 @@ app.use(routes)
 app.use(express.static('public'))
 
 
-//開始伺服器
+//開啟伺服器
 app.listen(PORT, () => {
   console.log(`server works successfully![http://localhost:${PORT}]`)
 })
