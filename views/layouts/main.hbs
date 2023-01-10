@@ -18,7 +18,11 @@
       <a class="navbar-brand" href="/">
         <h2>家庭記事本</h1>
       </a>
+      {{#if isAuthenticated}}
       <a href="/users/logout" class="btn btn-outline-danger">Logout</a>
+      {{else}}
+      <a href="/users/login" class="btn btn-outline-danger">Login</a>
+      {{/if}}
     </div>
   </nav>
   {{!-- nav --}}
