@@ -1,1 +1,71 @@
-<button type="submit" class="btn btn-primary">123123</button>
+{{!-- 下拉表單 --}}
+<div class="row mx-0 mt-5">
+  <div class="col-3 mx-auto">
+    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+      <option selected>Open this select menu</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+
+    {{!-- 總金額 --}}
+    <div class="d-flex justify-content-between mt-5">
+      <h2>總金額:</h2>
+      <h1>0</h1>
+    </div>
+  </div>
+</div>
+
+{{!-- 清單資料 --}}
+<div class="row mt-5 mx-0">
+  <div class="col-6 mx-auto">
+    <div class="list-group">
+      <div class="d-flex">
+        <div class="flex-grow-1">
+          <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+            <div class="d-flex justify-content-between">
+              <div class="d-flex">
+                <i class="fa-solid fa-utensils fa-4x me-3"></i>
+                <div>
+                  <h5 class="mb-1">午餐</h5>
+                  <p class="mb-1">2019/2/2</p>
+                </div>
+              </div>
+              <h3 class="align-self-end">60</h3>
+            </div>
+          </a>
+        </div>
+        <div class="d-flex align-items-center  justify-content-between">
+          <a href="#" class="mx-4 btn btn-secondary">修改</a>
+          <a href="#" class="btn btn-danger">刪除</a>
+        </div>
+      </div>
+
+      <div class="d-flex">
+        <div class="flex-grow-1">
+          <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+            <div class="d-flex justify-content-between">
+              <div class="d-flex">
+                <i class="fa-solid fa-utensils fa-4x me-3"></i>
+                <div>
+                  <h5 class="mb-1">午餐</h5>
+                  <p class="mb-1">2019/2/2</p>
+                </div>
+              </div>
+              <h3 class="align-self-end">60</h3>
+            </div>
+          </a>
+        </div>
+        <div class="d-flex align-items-center  justify-content-between">
+          <a href="#" class="mx-4 btn btn-secondary">修改</a>
+          <a href="#" class="btn btn-danger">刪除</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{{!-- 新增按鈕 --}}
+  <div class="d-grid gap-2 col-1 mx-auto mt-5">
+    <button class="btn btn-warning border border-dark" type="button">新增支出</button>
+  </div>
