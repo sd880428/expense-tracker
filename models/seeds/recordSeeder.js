@@ -3,6 +3,7 @@ const Record = require('../record')
 const Category = require('../category')
 const User = require('../user')
 const bcrypt = require('bcryptjs')
+
 const seedUser = {
   name: 'user1',
   email: 'user1@example.com',
