@@ -12,7 +12,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 //變數宣告
-const app = express() 
+const app = express()
 const PORT = process.env.PORT
 
 //樣板引擎

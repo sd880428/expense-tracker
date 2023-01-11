@@ -1,4 +1,3 @@
-
 {{!-- 下拉表單 --}}
 <div class="row mx-0 mt-5">
   <div class="col-3 mx-auto">
@@ -16,23 +15,26 @@
             <li><button class="dropdown-item" name="sort" type="submit" value="amount">金額</button></li>
             <li><button class="dropdown-item" name="sort" type="submit" value="category">類別</button></li>
             <hr class="dropdown-divider">
-            <li><h5 class="dropdown-header">只顯示類別:</h5></li><li>
+            <li>
+              <h5 class="dropdown-header">只顯示類別:</h5>
+            </li>
+            <li>
             </li>
             {{#each category}}
-            <li><button class="dropdown-item" name="onlyShow" type="submit" value="{{this._id}}">{{this.name}}</button></li>
+            <li><button class="dropdown-item" name="onlyShow" type="submit" value="{{this._id}}">{{this.name}}</button>
+            </li>
             {{/each}}
           </ul>
+        </div>
+        {{!-- 總金額 --}}
+        <div class="d-flex justify-content-between mt-5">
+          <h2>總金額:</h2>
+          <h1>{{totalAmount}}</h1>
+        </div>
+        {{> message}}
+      </div>
     </form>
   </div>
-</div>
-
-
-{{!-- 總金額 --}}
-<div class="d-flex justify-content-between mt-5">
-  <h2>總金額:</h2>
-  <h1>{{totalAmount}}</h1>
-</div>
-</div>
 </div>
 
 {{!-- 清單資料 --}}
@@ -56,7 +58,7 @@
           </a>
         </div>
         <div class="d-flex align-items-center  justify-content-between">
-          <a href="/records/edit" class="mx-4 btn btn-secondary">修改</a>
+          <a href="/records/edit/{{this._id}}" class="mx-4 btn btn-secondary">修改</a>
           <a href="/records/delete" class="btn btn-danger">刪除</a>
         </div>
       </div>
@@ -64,8 +66,8 @@
     </div>
   </div>
 </div>
+
 {{!-- 新增按鈕 --}}
 <div class="d-grid gap-2 col-1 mx-auto mt-5">
   <a href="/records/new"><button class="btn btn-warning border border-dark" type="button">新增支出</button></a>
 </div>
-

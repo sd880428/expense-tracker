@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   const userId = req.user._id
 
   //判斷使用者是不是選"只顯示類別"內的選項
-  let displayRecord = req.query.onlyShow ? { categoryId: req.query.onlyShow } : { userId }
+  let displayRecord = req.query.onlyShow ? { userId, categoryId: req.query.onlyShow } : { userId }
   let sortBy = ''
   switch (sort) {
     case "name":
