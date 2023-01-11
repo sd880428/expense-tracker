@@ -5,6 +5,7 @@ const routes = require('./routes/')
 const session = require('express-session')
 const usePassport = require('./config/passport')
 const flash = require('connect-flash')
+const methodOverride = require('method-override')
 require('./config/mongoose')
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
@@ -21,6 +22,7 @@ app.set('view engine', 'hbs')
 //middleware
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
+app.use(methodOverride('_method'))
 app.use(session({
   secret: 'SECRET',
   resave: false,
