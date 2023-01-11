@@ -1,26 +1,37 @@
 {{!-- 下拉表單 --}}
 <div class="row mx-0 mt-5">
   <div class="col-3 mx-auto">
-    <div class="d-grid col-12 mx-auto">
-      <div class="btn-group dropend">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          Dropright
-        </button>
-        <ul class="dropdown-menu">
-          {{#each category}}
-          <li><a class="dropdown-item" href="category/{{this.name}}">{{this.name}}</a></li>
-          {{/each}}
-        </ul>
-      </div>
-    </div>
+    <form action="/search" class="col-sm-12 rounded d-flex" id="search-by-category">
+      <div class="d-grid col-12 mx-auto">
+        <div class="btn-group dropend">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            分類
+          </button>
 
-
-    {{!-- 總金額 --}}
-    <div class="d-flex justify-content-between mt-5">
-      <h2>總金額:</h2>
-      <h1>{{totalAmount}}</h1>
-    </div>
+          <ul class="dropdown-menu">
+            <li><button class="dropdown-item" name="sort" type="submit" value="name">名字</button></li>
+            <li><button class="dropdown-item" name="sort" type="submit" value="date">日期</button></li>
+            <li><button class="dropdown-item" name="sort" type="submit" value="amount">金額</button></li>
+            <li><button class="dropdown-item" name="sort" type="submit" value="category">類別</button></li>
+            <hr class="dropdown-divider">
+            <li><h5 class="dropdown-header">只顯示類別:</h5></li><li>
+            </li>
+            {{#each category}}
+            <li><button class="dropdown-item" name="onlyShow" type="submit" value="{{this._id}}">{{this.name}}</button></li>
+            {{/each}}
+          </ul>
+    </form>
   </div>
+</div>
+
+
+{{!-- 總金額 --}}
+<div class="d-flex justify-content-between mt-5">
+  <h2>總金額:</h2>
+  <h1>{{totalAmount}}</h1>
+</div>
+</div>
 </div>
 
 {{!-- 清單資料 --}}
