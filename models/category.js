@@ -5,9 +5,9 @@ const categorySchema = new Schema({
     type: String,
     require: true
   },
-  image: {
+  icon: {
     type: String
-  } 
+  }
 })
 
 module.exports = mongoose.model('Category', categorySchema)
