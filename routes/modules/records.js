@@ -14,11 +14,14 @@ router.get('/new', (req, res) => { //新增支出
 router.post('/new', (req, res) => {
   const userId = req.user._id
   return Record.create({ ...req.body, userId })
-    .then(() => res.redirect('/'))
+    .then(() => {
+      req.flash('successMsg', '新增成功!')
+      res.redirect('/')
+    })
     .catch(error => console.error(error))
 })
 
-router.get('/edit/:id', (req, res) => { //新增支出
+router.get('/edit/:id', (req, res) => { //編輯資訊
   const _id = req.params.id
   const userId = req.user._id
   let categoryName = ''
@@ -40,8 +43,8 @@ router.put('/edit/:id', (req, res) => { //編輯資訊
   const _id = req.params.id
   const userId = req.user._id
 
-  return Record.findOne({ _id, userId }) 
-    .then((record) => { 
+  return Record.findOne({ _id, userId })
+    .then((record) => {
       record = Object.assign(record, req.body)
       return record.save()
     })
@@ -52,5 +55,16 @@ router.put('/edit/:id', (req, res) => { //編輯資訊
     .catch(error => console.error(error))
 })
 
+router.delete('/:id', (req, res) => { //刪除支出
+  const _id = req.params.id
+  const userId = req.user._id
+  return Record.findOne({ _id, userId })
+    .then(record => record.remove())
+    .then(() => {
+      req.flash('successMsg', '已刪除此餐廳')
+      res.redirect('/')
+    })
+    .catch(error => console.error(error)) //錯誤處理
+})
 
 module.exports = router
