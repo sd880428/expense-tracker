@@ -7,8 +7,9 @@ router.get('/', (req, res) => {
   const userId = req.user._id
   Record.find({ userId }).lean().sort({ date: 'desc' })
     .then(records => {
-      let totalAmount = 0
-      records.forEach(record => totalAmount += record.amount) //得出使用者紀錄總金額
+      const totalAmount = records.reduce((prev, curr,) => { //得出使用者紀錄總金額
+        return prev + curr.amount
+      }, 0)
       Promise.all(Array.from(
         { length: records.length },
         (_, i) => {
